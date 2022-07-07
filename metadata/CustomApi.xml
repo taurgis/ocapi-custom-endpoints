@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<custom-objects xmlns="http://www.demandware.com/xml/impex/customobject/2006-10-31">
+    <custom-object type-id="CustomApi" object-id="get-customer"/>
+</custom-objects>

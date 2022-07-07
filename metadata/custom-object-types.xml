@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
+
+    <custom-type type-id="CustomApi">
+        <display-name xml:lang="x-default">Custom API</display-name>
+        <description xml:lang="x-default">Allows to use custom objects api for providing various hooks</description>
+        <staging-mode>source-to-target</staging-mode>
+        <storage-scope>organization</storage-scope>
+        <key-definition attribute-id="ID">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <group-definitions>
+            <attribute-group group-id="CustomApi">
+                <display-name xml:lang="x-default">CustomApi</display-name>
+                <attribute attribute-id="ID"/>
+                <attribute attribute-id="creationDate" system="true"/>
+                <attribute attribute-id="lastModified" system="true"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+</metadata>
