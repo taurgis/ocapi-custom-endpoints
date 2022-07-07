@@ -29,7 +29,6 @@
   "scripts": {
     "upload": "sgmf-scripts --upload",
     "uploadCartridge": "sgmf-scripts --uploadCartridge plugin_custom_ocapi_endpoints",
-    "watch": "sgmf-scripts --watch",
-    "watch:static": "sgmf-scripts --watch static"
+    "watch": "sgmf-scripts --watch"
   }
 }
