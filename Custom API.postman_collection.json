@@ -1,0 +1,177 @@
+{
+	"info": {
+		"_postman_id": "5f7fed40-f21d-44b8-8090-b8aff3081c55",
+		"name": "Custom API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "976887"
+	},
+	"item": [
+		{
+			"name": "1. Get OAuth2 client token Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var tokenData = JSON.parse(responseBody);",
+							"",
+							"if(tokenData.access_token!==null && tokenData.token_type!==null ){",
+							"    pm.collectionVariables.set(\"Authorization_key\", tokenData.access_token);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{client_pw}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{client_id}}",
+							"type": "string"
+						},
+						{
+							"key": "saveHelperData",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "showPassword",
+							"value": true,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://account.demandware.com/dw/oauth2/access_token",
+					"protocol": "https",
+					"host": [
+						"account",
+						"demandware",
+						"com"
+					],
+					"path": [
+						"dw",
+						"oauth2",
+						"access_token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. Custom API: Get Customer",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Authorization_key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-dw-client-id",
+						"value": "{{clientid}}"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/s/RefArch/dw/shop/v22_6/custom_objects/CustomApi/get-customer?client_id={{client_id}}&customer_no=00001501",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"s",
+						"RefArch",
+						"dw",
+						"shop",
+						"v22_6",
+						"custom_objects",
+						"CustomApi",
+						"get-customer"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "{{client_id}}"
+						},
+						{
+							"key": "customer_no",
+							"value": "00001501"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Authorization_key",
+			"value": ""
+		},
+		{
+			"key": "base_url",
+			"value": ""
+		},
+		{
+			"key": "client_id",
+			"value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+		},
+		{
+			"key": "client_pw",
+			"value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+			"type": "string"
+		}
+	]
+}
