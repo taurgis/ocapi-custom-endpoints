@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "1. Get OAuth2 client token Copy",
+			"name": "1. Get OAuth2 client token",
 			"event": [
 				{
 					"listen": "test",
