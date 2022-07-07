@@ -1,10 +1,6 @@
 {
     "hooks": [
         {
-            "name": "dw.ocapi.shop.custom_object.beforeGET",
-            "script": "./cartridge/scripts/hooks/customObjectsHooks.js"
-        },
-        {
             "name": "dw.ocapi.shop.custom_object.modifyGETResponse",
             "script": "./cartridge/scripts/hooks/customObjectsHooks.js"
         }
