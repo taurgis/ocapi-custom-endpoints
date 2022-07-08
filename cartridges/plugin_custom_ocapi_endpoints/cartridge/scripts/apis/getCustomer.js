@@ -4,7 +4,7 @@
  * Fetch customer data using the Customer Number.
  *
  * WARNING: This is a very unsafe endpoint as you can fetch all accounts with an ID the is incremental! The idea is
- * just to show what is possible!
+ * just to show what is possible! And that with this possibility you can create serious security holes!
  *
  */
 exports.get = function (httpParams) {
